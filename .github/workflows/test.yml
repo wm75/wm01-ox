@@ -24,4 +24,4 @@ jobs:
         run: |
           conda env create --name TEST --file environment.yml
           source activate TEST
-          python test_pymc3.py
+          python testing/test_pymc3.py
