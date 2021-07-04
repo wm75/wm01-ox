@@ -2,22 +2,41 @@
 
 ## Introduction
 
-These are Jupyter notebooks for OM-01, Summer Semester 2021, Faculty of Biology,
-University of Freiburg.
+This is the course material for the first half of WM-01, Summer Semester 2021
+(year of the Ox), Faculty of Biology, University of Freiburg. The lectures will
+be taught by Prof. Dr. Andrew Straw and the tutorials by Yonatan Cohen.
 
-## View at https://nbviewer.jupyter.org/github/strawlab/wm01-ox/tree/master/
+## Run interactively at https://strawlab-rp2.zoologie.uni-freiburg.de (short: https://bit.ly/wm01-ox )
 
-## Run interactively at https://mybinder.org/v2/gh/strawlab/wm01-ox/master
+We strongly recommend that you install Anaconda Python on your own computer -
+this gives you the tools to run your own code after the class is over on your
+own PC. We will help you install Anaconda python and the packages we use in the
+course. While we are doing that, for the first few days (or for the entire
+course), you may use our server. This will be taken offline shortly after the
+course is done.
 
-[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/strawlab/wm01-ox/master)
+To login to https://strawlab-rp2.zoologie.uni-freiburg.de (short:
+https://bit.ly/wm01-ox , your sername is lower case last name with no spaces.
+Password is your Uni Freiburg login name. E.g. "Max von Musterman" is
+`vonmusterman` with `mm1234`.
 
-## Run interactively at **TBD**
+## Installation with Anaconda
 
-Login details will be discussed in class.
+Download the Anaconda Individual Edition from
+[here](https://www.anaconda.com/products/individual).
+
+We will demonstrate how to setup an Anaconda environment in class. Use our
+[`environment.yml`](https://raw.githubusercontent.com/strawlab/wm01-ox/main/environment.yml)
+file to setup your `wm01-ox` environment in Anaconda. **Failure to use the
+`environment.yml` file for the class may result in incompatibility with the
+exercises in the course.**
 
 ## This course on Ilias
 
 https://ilias.uni-freiburg.de/goto.php?target=crs_2235147&client_id=unifreiburg
+
+Upload your daily assignments as .ipynb files directly into the assignment
+folder in Ilias. Do not change the file name from the original.
 
 ## The Python Tutor - extremely highly recommended
 
