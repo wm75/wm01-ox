@@ -1,8 +1,10 @@
-# This script tests PyMC3 which I have found to be a bit tricky to install and
+# -*- coding: utf-8 -*-
+# # This script tests PyMC3 which I have found to be a bit tricky to install and
 # run correctly, especially on Windows.
 
 import numpy as np
 import pymc3 as pm
+import arviz as az
 import pandas as pd
 import matplotlib.pyplot as plt
 plt.style.use('seaborn-darkgrid')
@@ -43,7 +45,8 @@ if __name__ == "__main__":
         ν = pm.Exponential('ν_minus_one', 1/29.) + 1
 
     plt.figure()
-    pm.kdeplot(np.random.exponential(30, size=10000), fill_kwargs={'alpha': 0.5})
+    with model:
+        az.plot_kde(np.random.exponential(30, size=10000), fill_kwargs={'alpha': 0.5})
     plt.savefig('kde.png')
 
     with model:
@@ -63,15 +66,16 @@ if __name__ == "__main__":
         effect_size = pm.Deterministic('effect size',
                                     diff_of_means / np.sqrt((group1_std**2 + group2_std**2) / 2))
 
-
     with model:
         # For this test script, we do not do much sampling. This is not enough
         # for real work!
-        trace = pm.sample(tune=100, draws=50, chains=1, cores=1)
+        trace = pm.sample(tune=200, draws=100, chains=2, cores=2, return_inferencedata=True)
 
     plt.figure()
-    pm.plot_posterior(trace, var_names=['group1_mean','group2_mean', 'group1_std', 'group2_std', 'ν_minus_one'],
-                    color='#87ceeb')
+    with model:
+        pm.plot_posterior(trace, var_names=['group1_mean','group2_mean', 'group1_std', 'group2_std', 'ν_minus_one'],
+                        color='#87ceeb')
     plt.savefig('posteriors.png')
 
-    pm.summary(trace, varnames=['difference of means', 'difference of stds', 'effect size'])
+    with model:
+        print(az.summary(trace, var_names=['difference of means', 'difference of stds', 'effect size']))

@@ -17,7 +17,7 @@ Login details will be discussed in class.
 
 ## This course on Ilias
 
-**TBD**
+https://ilias.uni-freiburg.de/goto.php?target=crs_2235147&client_id=unifreiburg
 
 ## The Python Tutor - extremely highly recommended
 
@@ -32,7 +32,8 @@ http://pythontutor.com/
 
 ```
 conda env create -f environment.yml
-source activate wm01-ox
+conda activate wm01-ox
+# Alternatively, try "source activate wm01-ox"
 jupyter notebook
 ```
 
