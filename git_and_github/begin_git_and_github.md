@@ -17,9 +17,8 @@ where most collaboration happens.
 
 ### Installation
 
-First, lets install `git` and perform initial minimal configuration.
-
-Use the instructions provided as part of the *github* documentation for this:
+First, install `git` and perform initial minimal configuration. Use the
+instructions provided as part of the *github* documentation for this:
 
 https://docs.github.com/en/get-started/quickstart/set-up-git#setting-up-git
 
@@ -28,7 +27,7 @@ configuration.
 
 ### Using git for local version-control
 
-Lets illustrate basic functionality of `git` with a toy example: a small piece
+Let's illustrate basic functionality of `git` with a toy example: a small piece
 of code for generating random biological sequences. Get an initial Python
 script from [here](./random_seq.py) and store this file in an otherwise empty
 folder on your local system.
@@ -43,7 +42,82 @@ with:
 
 `python random_seq.py 20`
 
-Ah, better!
+Ah, better! This script promises to be *really* useful, but you will need to
+extend its functionality. To keep control over the development process, let's
+put this code under version control with `git`.
 
+To do so, while inside the folder with your script, run:
 
+   `git init`
+   
+   This simple command will turn your folder into a `git` repository, for which
+   `git` will, from now on, keep track of changes.
+   
+   Under the hood, `git` just created a `.git` folder inside your current
+   directory. This is where all the bookkeeping of changes will happen.
+   
+Now run `git status` to see what's up with your brand new repo.
+You should see output approximately like this:
 
+```
+On branch master
+
+No commits yet
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	random_seq.py
+
+nothing added to commit but untracked files present (use "git add" to track)
+```
+
+Hmm, what is that supposed to tell you. First of all, a *commit* in `git` is
+like a snapshot of a given repository at a given point in time, which you can
+always go back to later. So *commits* are at the very heart of version control,
+but the status message says that you don't have any yet. This is because the
+`git init` command only sets up the repo, but doesn't yet save a snapshot of it.
+
+The second part of the message tells you that `git` already knows about your
+Python script, but doesn't track changes to it yet (that's what *untracked
+file* means). At this point any snapshot of the repo would *not* include your
+script, but conveniently enough `git` also tells you how to change this.
+Follow the instructions and run:
+
+`git add random_seq.py`
+
+and after another `git status` you should see something like:
+
+```
+On branch master
+
+No commits yet
+
+Changes to be committed:
+  (use "git rm --cached <file>..." to unstage)
+	new file:   random_seq.py
+```
+
+Hmm, still no commits :( At least, the file is now tracked and there's "A
+change to be committed".
+
+#### The working directory, commits and the staging area
+
+You can put anything you like into a directory that's under `git` version
+control. `git` will ignore everything you didn't explicitly tell it to track
+changes for (it will only let you know that there are untracked items in the
+status output).
+
+Even changes in *tracked* files will not automatically make it into the next
+commit (i.e. the next snapshot of the repository). You need to run `git add
+your_file` to add these changes to the changes to be committed. For previously
+*untracked* files (like our script) `git add` performs the dual action of
+adding the file to the list of tracked files and of adding all of its content
+(since its new) to the list of changes to be committed.
+
+We're very close to creating our first commit now. All that's left to do is to
+run:
+
+`git commit`
+
+If you do that, git will drop you into your system's default command-line text
+editor.
