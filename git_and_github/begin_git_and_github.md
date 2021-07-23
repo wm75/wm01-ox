@@ -12,6 +12,22 @@ There are many similar web services/platforms like *github*, but *github* is
 currently the most widely used such platform by far. In other words, this is
 where most collaboration happens.
 
+## Helpful accompanying material
+
+There is a nice
+[git cheatsheet](https://education.github.com/git-cheat-sheet-education.pdf)
+compiled by github. Once you've worked through this introduction you may want
+to keep the cheatsheet opened as your companion through the further exercises.
+
+The Galaxy training material has a dedicated [section on contributing to the
+training material](https://training.galaxyproject.org/training-material/topics/contributing/)
+itself with *git* and *github*. Much of what's explained in the two tutorials:
+
+- Contributing with GitHub via command-line
+- Contributing with GitHub via its interface
+
+is also useful if you would like to contribute to other projects on github.
+
 
 ## Introduction to git
 
